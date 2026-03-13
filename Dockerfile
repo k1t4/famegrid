@@ -1,4 +1,4 @@
-FROM runpod/worker-comfyui:5.5.1-base
+FROM runpod/worker-comfyui:5.7.1-base
 
 # Registry-managed custom nodes pinned to published package versions.
 RUN comfy node install --exit-on-fail controlaltai-nodes@1.1.4 --mode remote
