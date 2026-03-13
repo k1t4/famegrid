@@ -17,7 +17,14 @@ RUN comfy model download \
   --url https://huggingface.co/Comfy-Org/z_image/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors?download=true \
   --relative-path models/text_encoders \
   --filename qwen_3_4b.safetensors
-# RUN # Could not find URL for z-image base\famegrid2\2026-02-15_19-33-05-save-6860-70-0.safetensors
+# RUN # Could not find URL for z-image base\famegrid2\2026-02-15_19-33-05-save-6860-70-0.safetensors TURBOOOOO
+RUN mkdir -p "/comfyui/models/loras/z-image base/famegrid2" && \
+    curl -L "https://civitai.com/api/download/models/2733658?type=Model&format=SafeTensor&token=2a19d3d050440ff647b0472df03aebd0" \
+    -o "/comfyui/models/loras/z-image base/famegrid2/fmgrd42026-02-15_19-33-05-save-6860-70-0.safetensors"
+# RUN # Could not find URL for z-image base\famegrid5\fmgrd42026-02-17_13-14-24-save-10780-20-0.safetensors
+RUN mkdir -p "/comfyui/models/loras/z-image base/famegrid5" && \
+    curl -L "https://civitai.com/api/download/models/2733658?type=Model&format=SafeTensor&token=2a19d3d050440ff647b0472df03aebd0" \
+    -o "/comfyui/models/loras/z-image base/famegrid5/fmgrd42026-02-17_13-14-24-save-10780-20-0.safetensors"
 # RUN # Could not find URL for zimagebase_ae.safetensors
 RUN comfy model download \
   --url https://huggingface.co/Comfy-Org/z_image/resolve/main/split_files/vae/ae.safetensors?download=true \
@@ -29,10 +36,6 @@ RUN comfy model download \
   --url https://huggingface.co/Comfy-Org/z_image/resolve/main/split_files/diffusion_models/z_image_bf16.safetensors?download=true \
   --relative-path models/diffusion_models \
   --filename z_image_bf16.safetensors
-# RUN # Could not find URL for z-image base\famegrid5\fmgrd42026-02-17_13-14-24-save-10780-20-0.safetensors
-RUN mkdir -p "/comfyui/models/loras/z-image base/famegrid5" && \
-    curl -L "https://civitai.com/api/download/models/2733658?type=Model&format=SafeTensor&token=2a19d3d050440ff647b0472df03aebd0" \
-    -o "/comfyui/models/loras/z-image base/famegrid5/fmgrd42026-02-17_13-14-24-save-10780-20-0.safetensors"
 # RUN # Could not find URL for z_image_turbo_bf16.safetensors
 RUN comfy model download \
   --url https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors?download=true \
