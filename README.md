@@ -6,6 +6,11 @@ Dockerized ComfyUI workflow: FameGrid Revolution.json
 
 - `Dockerfile` - Docker container configuration for running this ComfyUI workflow
 - `example-request.json` - Example API request payload for testing
+- `loras/` - Local Civitai LoRA assets copied into the image at build time
+- `vendor/models/` - Local high-risk model assets copied into the image at build time
+- `vendor/models.lock` - Source URLs and SHA-256 checksums for vendored model assets
+- `vendor/custom_nodes/` - Vendored GitHub custom nodes copied into the image at build time
+- `vendor/custom_nodes.lock` - Source repositories and pinned commit SHAs for vendored custom nodes
 
 ## Usage
 
@@ -16,6 +21,20 @@ docker build -t famegrid .
 # Run the container
 docker run -p 8188:8188 famegrid
 ```
+
+## Local LoRAs
+
+The Docker build now uses the local `loras/` directory in the build context and copies it to `/comfyui/models/loras/` inside the container. No Civitai downloads happen during `docker build`.
+
+## Vendored Model Assets
+
+The Docker build also vendors high-risk GitHub-hosted model files from `vendor/models/` instead of downloading them at build time. Their source URLs and SHA-256 checksums are recorded in `vendor/models.lock`.
+
+## Vendored Custom Nodes
+
+The Docker build vendors `comfyui-vrgamedevgirl` directly from this repository instead of cloning it during `docker build`. Its source URL and pinned commit are recorded in `vendor/custom_nodes.lock`.
+
+`RES4LYF` is not vendored; it is installed at build time via `comfy node install`.
 
 ## API Request Example
 
