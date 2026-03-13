@@ -1,6 +1,7 @@
 # clean base image containing only comfyui, comfy-cli and comfyui-manager
 FROM runpod/worker-comfyui:5.5.1-base
 
+
 # install custom nodes into comfyui (first node with --mode remote to fetch updated cache)
 RUN comfy node install --exit-on-fail controlaltai-nodes@1.1.4 --mode remote
 RUN comfy node install --exit-on-fail RES4LYF
