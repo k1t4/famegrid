@@ -1,10 +1,10 @@
 FROM runpod/worker-comfyui:5.7.1-base
 
 # Registry-managed custom nodes pinned to published package versions.
-RUN comfy node install --exit-on-fail controlaltai-nodes@1.1.4 --mode remote
+RUN comfy node install --exit-on-fail controlaltai-nodes --mode remote
 RUN comfy node install --exit-on-fail RES4LYF --mode remote
-RUN comfy node install --exit-on-fail rgthree-comfy@1.0.2512112053
-RUN comfy node install --exit-on-fail comfyui-easy-use@1.3.6
+RUN comfy node install --exit-on-fail rgthree-comfy
+RUN comfy node install --exit-on-fail comfyui-easy-use
 
 # Vendored GitHub custom node pinned by commit in vendor/custom_nodes.lock.
 COPY vendor/custom_nodes/comfyui-vrgamedevgirl/ /comfyui/custom_nodes/comfyui-vrgamedevgirl/
